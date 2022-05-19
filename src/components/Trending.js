@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { Link } from "react-router-dom";
 
 const Trending = () => {
   const URL =
@@ -40,10 +41,12 @@ const Trending = () => {
         >
           {trending?.map((trenddata) => (
             <SplideSlide>
-              <Card key={trenddata.id}>
-                <p>{trenddata.title}</p>
-                <img src={trenddata.image} alt="" />
-              </Card>
+              <Link to={"/recipe/" + trenddata.id}>
+                <Card key={trenddata.id}>
+                  <p>{trenddata.title}</p>
+                  <img src={trenddata.image} alt="" />
+                </Card>
+              </Link>
             </SplideSlide>
           ))}
         </Splide>

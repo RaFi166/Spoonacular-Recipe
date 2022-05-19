@@ -5,6 +5,7 @@ import Category from "./components/Category";
 import Home from "./Pages/Home";
 import Search from "./components/Search";
 import Searched from "./components/Searched";
+import Recipe from "./components/Recipe";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/cuisine/:id" element={<Cuisine />} />
         <Route path="/" element={<Home />} />
         <Route path="/searched/:search" element={<Searched />} />
+        <Route path="/recipe/:id" element={<Recipe />} />
       </Routes>
     </div>
   );
