@@ -27,46 +27,44 @@ const Trending = () => {
   };
 
   return (
-    <div>
-      <Wrapper>
-        <h3>Trending.. </h3>
-        <Splide
-          options={{
-            perPage: 3,
-            arrows: false,
-            pagination: false,
-            drag: "free",
-            gap: "5rem",
-          }}
-        >
-          {trending?.map((trenddata) => (
-            <SplideSlide>
-              <Link to={"/recipe/" + trenddata.id}>
-                <Card key={trenddata.id}>
-                  <p>{trenddata.title}</p>
-                  <img src={trenddata.image} alt="" />
-                </Card>
-              </Link>
-            </SplideSlide>
-          ))}
-        </Splide>
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <h3>Trending.. </h3>
+      <Splide
+        options={{
+          perPage: 3,
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          gap: "5rem",
+        }}
+      >
+        {trending?.map((trenddata) => (
+          <SplideSlide>
+            <Link to={"/recipe/" + trenddata.id}>
+              <Card key={trenddata.id}>
+                <p>{trenddata.title}</p>
+                <img src={trenddata.image} alt="" />
+              </Card>
+            </Link>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  margin: 4rem 0rem;
+  padding: 0px;
 `;
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 12rem;
   border-radius: 2rem;
   overflow: hidden;
   img {
     border-radius: 2rem;
     position: absolute;
     left: 0;
-    height: 50%;
+    height: 100%;
     width: 100%;
     object-fit: cover;
   }

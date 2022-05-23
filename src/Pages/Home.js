@@ -5,7 +5,6 @@ import Vegeterian from "../components/Vegeterian";
 const Home = () => {
   return (
     <div>
-     
       <Trending />
       <Vegeterian />
     </div>

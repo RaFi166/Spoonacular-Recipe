@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
+import { Link } from "react-router-dom";
 
 const Vegeterian = () => {
   const [veg, setVeg] = useState([]);
@@ -23,31 +24,32 @@ const Vegeterian = () => {
           setVeg(data.recipes);
         });
     }
-  }
+  };
 
   return (
-   
-      <Wrapper>
-        <h3>Vegeterian.. </h3>
-        <Splide
-          options={{
-            perPage: 3,
-            arrows: false,
-            pagination: false,
-            drag: "free",
-            gap: "5rem",
-          }}
-        >
-          {veg?.map((vegg) => (
-            <SplideSlide>
+    <Wrapper>
+      <h3>Vegeterian.. </h3>
+      <Splide
+        options={{
+          perPage: 3,
+          arrows: false,
+          pagination: false,
+          drag: "free",
+          gap: "5rem",
+        }}
+      >
+        {veg?.map((vegg) => (
+          <SplideSlide>
+            <Link to={"/recipe/" + vegg.id}>
               <Card key={vegg.title}>
                 <p>{vegg.title}</p>
                 <img src={vegg.image} alt="" />
               </Card>
-            </SplideSlide>
-          ))}
-        </Splide>
-      </Wrapper>
+            </Link>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </Wrapper>
   );
 };
 
@@ -55,7 +57,7 @@ const Wrapper = styled.div`
   margin: 4rem 0rem;
 `;
 const Card = styled.div`
-  min-height: 25rem;
+  min-height: 12rem;
   border-radius: 2rem;
   overflow: hidden;
   img {
@@ -63,7 +65,7 @@ const Card = styled.div`
     position: absolute;
     left: 0;
     width: 100%;
-    height: 50%;
+    height: 100%;
     object-fit: cover;
   }
   p {
