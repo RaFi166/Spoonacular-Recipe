@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Recipe = () => {
   let { id } = useParams();
-  const[activeTab, setActiveTab] = useState("instructions");
+  const [activeTab, setActiveTab] = useState("instructions");
   const URL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=b74e49827b6140dfb25f008f8e9f9424`;
   const [details, setDetails] = useState({});
   useEffect(() => {
@@ -23,6 +23,7 @@ const Recipe = () => {
           Instructions
         </Button>
         <Button onClick={() => setActiveTab("ingredient")}>About</Button>
+
         {activeTab === "instructions" && (
           <div>
             <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
@@ -42,7 +43,7 @@ const Recipe = () => {
 };
 
 const DetailWrapper = styled.div`
-  margin-top: 10rem;
+  margin-top: 6rem;
   margin-bottom: 5rem;
   display: flex;
   h2 {
@@ -59,15 +60,18 @@ const DetailWrapper = styled.div`
 
 const Button = styled.div`
   padding: 0.3rem 0.5rem;
+  width: 70%;
+  margin-bottom: 10px;
   color: #313131;
   background: white;
   border: 2px solid black;
   margin-right: 2rem;
   font-weight: 600;
+  cursor: pointer;
 `;
 const Info = styled.div`
   margin-left: 10rem;
-  display: flex;
+  /* display: flex; */
 `;
 
 export default Recipe;

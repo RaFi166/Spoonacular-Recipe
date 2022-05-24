@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Cuisine = () => {
   const [param, setParam] = useState([]);
@@ -16,10 +16,12 @@ const Cuisine = () => {
   return (
     <Grid>
       {param?.map((datas) => (
-        <Card key={datas.id}>
-          <h4>{datas.title}</h4>
-          <img src={datas.image} alt="" />
-        </Card>
+        <Link to={"/recipe/" + datas.id}>
+          <Card key={datas.id}>
+            <h4>{datas.title}</h4>
+            <img src={datas.image} alt="" />
+          </Card>
+        </Link>
       ))}
     </Grid>
   );
